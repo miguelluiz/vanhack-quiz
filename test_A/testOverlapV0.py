@@ -1,6 +1,10 @@
 from overlap import isOverlapR2
+import sys
+if sys.version.split(' ')[0]<'3':
+    print ('Python 3 is required')
+    exit()
 print ('This program that accepts two lines (x1,x2) \nand (x3,x4) on the x-axis and returns whether they overlap')
-print ("Enter total number of lines to check, default=1 par to check")
+print ("Enter total number of lines to check, default=1 pair to check")
 i = 0
 n = input()
 if n is None or len(n)==0: 

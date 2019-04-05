@@ -22,7 +22,7 @@ def isOverlapR2(A,B):
       B0------B1                          B0------B1
           if B1<A0 OR B0>A1 then
              Line B does NOT overlap Line A
-          else:
+          else
              Line B DOES ovelap Line A
     '''
     return not (B[1]<A[0] or B[0]>A[1])
