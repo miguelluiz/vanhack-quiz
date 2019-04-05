@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>{{ title }} </title>
+    </head>
+    <body>
+        <h1>Hello" {{ title }}!</h1>
+        {% for url in data %}
+        <h4><div><p>Main URL: {{ url }} </p></div></h4>
+        {% for rec1 in data[url][0] %}
+        <div><p>{{ rec1 }}</p></div>
+        {% endfor %}
+        <h4><div><p>Links related:</p></div></h4> 
+        {% for rec2 in data[url][1] -%}
+        <ul><li>{{ rec2 }}</li></ul> 
+        {% endfor %}
+        {% endfor %}
+     </body>
+</html>

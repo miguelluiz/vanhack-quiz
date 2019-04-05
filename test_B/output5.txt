@@ -1,0 +1,83 @@
+1.2 is greater than 1.1
+1.2 is equal to 1.2
+1.2 is less than 1.3
+1.0 is equal to 1
+1.0 is less than 1.0.1
+1.0 is less than 1.0.0.0.0.0.0.1
+10.0 is greater than 8.0.0.0.0.0.0.0
+10.0.0.0.0.0.0.1 is greater than 010.0.0.0.0.0.0.0
+10.0.0.0.0.0.0.1 is less than 010.0.0.0.0.0.1.0
+10.0 is equal to 010.0.0.0.0.0.0.0
+10.0 is less than 110.0.0.0.0.0.0.0
+010.0 is equal to 010.0.0.0.0.0.0.0
+101.0 is less than 110.0.0.0.0.0.0.0
+A-101.0 is less than 110.0.0B.C0.D0.E0.#0.0)(*&
+01.10.100.001 is equal to 1.10.100.1
+Usage: 
+	python compareVersion(a,b)  
+	a and b must be strings
+It is required 02 Value(s) and must be string
+Usage: 
+	python compareVersion(a,b)  
+	a and b must be strings
+Both must be string
+Usage: 
+	python compareVersion(a,b)  
+	a and b must be strings
+Usage: 
+	python compareVersion(a,b)  
+a and b must be strings 
+for aditional info
+Please use:
+python compareVersion('H')
+Usage: 
+	python compareVersion(a,b)  
+	a and b must be strings
+
+            usage:
+                from compare import compareVersion
+                print(compareVersion(a,b))
+
+            expected return
+            when
+                a==b: 
+                    a is equal to b 
+                a>b: 
+                    a is greater than b
+                a<b: 
+                    a is less than b
+            Exceptions:
+
+            either a is null and/or b is null:
+                Value(s) can not be null: Both values must be string    
+            either a and/or b are/is not a string:
+                Both must be string
+
+            assumptions:
+                a and b are string
+                a and b are not null (None)
+                both version strings only contain numbers (0...9) and this char '.':
+                    123.456.789.012
+                    'A..Z','a..z' and any other chars like !@#$%¨&*()[}]{´`~^ç?/;:.>,<\| will be removed from the comparison:
+                        some adjustment would be applied after char removal:
+                        '..' will be replaced by '.'
+                        string ending in '.' will be shorted by 1
+                this '..' will not be accepted as it is '.' duplicated:
+                        '10..12..13..14' will become '10.12.13.14'
+                the comparison would be from the group split by the char '.':
+                        10.12.13.14 would be treated as 10 12 13 14
+                        01.10.100.001 would be treated as 1 10 100 1
+                all the comparison would check the integer part of the version:
+                        '10.0' is equal to '010.0.0.0.0.0.0.0' because int('10.0') is equal to int ('010')
+            
+                whoever version number has the higher far left group would be named as greater:
+                        10.0.0.0.0.1 is greater then 9.9.9.9.9.9.9
+                        0.1.0.0.0.0.1 is greater than 0.0.9
+                        the same "int" rule will be applied for any other group in the string
+                all '0's from the left will be disregarded if its value is '0':
+                        1.0.0.0 is equal to 1.0 and it is equal to 1
+             
+python compareVersion('-h') for help
+Usage: 
+	python compareVersion(a,b)  
+	a and b must be strings
